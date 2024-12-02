@@ -45,12 +45,6 @@ impl<'de> Deserialize<'de> for Entry {
     }
 }
 
-impl From<Entry> for (SVector<f64, 57>, EmailType) {
-    fn from(value: Entry) -> Self {
-        (value.0.0, value.1)
-    }
-}
-
 impl Entry {
     pub fn get_feature(&self, idx: usize) -> Option<f64> {
         self.0.0.get(idx).cloned()
