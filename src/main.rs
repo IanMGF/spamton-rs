@@ -133,6 +133,8 @@ pub fn print_data_fitness(data: &[Entry], spam_dist: &[Normal; 57], ham_dist: &[
             (EmailType::Ham, EmailType::Spam) => (1, 0),
             (EmailType::Ham, EmailType::Ham) => (1, 1),
         }] += 1;
+        
+        println!("Wrong prediction [Falsely predicted: {:?}]: {}", predicted_email_type, entry.0.0);
     }
 
     println!("Confusion matrix: {}", confusion_matrix);
